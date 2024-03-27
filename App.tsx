@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet} from 'react-native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
-import {WidgetList} from './src';
+import {DynamicButton, WidgetList} from './src/components';
 
 export default function App() {
   return (
@@ -10,6 +10,7 @@ export default function App() {
       <GestureHandlerRootView style={{flex: 1}}>
         <SafeAreaView style={styles.container}>
           <WidgetList />
+          <DynamicButton />
         </SafeAreaView>
       </GestureHandlerRootView>
     </SafeAreaProvider>
