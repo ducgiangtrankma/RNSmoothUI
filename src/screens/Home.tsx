@@ -4,6 +4,7 @@ import {
   Dimensions,
   FlatList,
   Image,
+  Platform,
   Pressable,
   StyleSheet,
   Text,
@@ -34,7 +35,7 @@ export const Home: FC<Props> = () => {
       ) => {
         navigate(APP_SCREEN.PRODUCT_DETAIL, {
           data: item,
-          animated: true,
+          animated: Platform.OS === 'ios',
           image: {
             x: pageX,
             y: pageY,
