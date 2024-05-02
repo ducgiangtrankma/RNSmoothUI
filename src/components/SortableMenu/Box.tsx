@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import {SIZE} from './config';
+import {Colors} from '../../utils/color';
 const styles = StyleSheet.create({
   container: {
     width: SIZE - 20,
@@ -12,6 +13,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: Colors.gray_40,
   },
 });
 interface TileProps {
@@ -23,7 +25,7 @@ export const Box = ({id}: TileProps) => {
   if (id === 'spent') {
     return (
       <View style={styles.container} pointerEvents="none">
-        <Text>spent</Text>
+        <Text>SPENT</Text>
       </View>
     );
   }
@@ -31,7 +33,7 @@ export const Box = ({id}: TileProps) => {
   if (id === 'cashback') {
     return (
       <View style={[styles.container]} pointerEvents="none">
-        <Text>cashback</Text>
+        <Text>CASHBACK</Text>
       </View>
     );
   }
@@ -39,7 +41,7 @@ export const Box = ({id}: TileProps) => {
   if (id === 'recent') {
     return (
       <View style={styles.container} pointerEvents="none">
-        <Text>recent</Text>
+        <Text>RECENT</Text>
       </View>
     );
   }
@@ -47,7 +49,7 @@ export const Box = ({id}: TileProps) => {
   if (id === 'cards') {
     return (
       <View style={styles.container} pointerEvents="none">
-        <Text>Cards</Text>
+        <Text>CARDS</Text>
       </View>
     );
   }

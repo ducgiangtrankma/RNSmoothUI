@@ -1,18 +1,21 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {LogBox, StyleSheet} from 'react-native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
-import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
-import {DynamicButton, WidgetList} from './src/components';
-
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {Provider} from 'react-redux';
+import {AnimatedAppNavigation} from './src/navigator';
+import {store} from './src/redux';
+LogBox.ignoreLogs([
+  'Selector unknown returned the root state when called. This can lead to unnecessary rerenders',
+]);
 export default function App() {
   return (
     <SafeAreaProvider>
-      <GestureHandlerRootView style={{flex: 1}}>
-        <SafeAreaView style={styles.container}>
-          <WidgetList />
-          <DynamicButton />
-        </SafeAreaView>
-      </GestureHandlerRootView>
+      <Provider store={store}>
+        <GestureHandlerRootView style={styles.container}>
+          <AnimatedAppNavigation />
+        </GestureHandlerRootView>
+      </Provider>
     </SafeAreaProvider>
   );
 }
@@ -20,6 +23,5 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 100,
   },
 });
