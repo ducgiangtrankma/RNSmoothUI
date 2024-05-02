@@ -72,4 +72,29 @@ const CartSvg = ({size = 25, color = Colors.typography}) => (
     />
   </Svg>
 );
-export {OrderSvg, ProfileSvg, GpsSvg, LogoutSvg, DiscoverSvg, CartSvg};
+const HeartSvg = ({size = 22, color = Colors.typography}) => (
+  <Svg width={size} height={size} fill="none" viewBox="0 0 22 20">
+    <Path
+      d="M15.866 0a5.78 5.78 0 0 0-5.039 2.95A5.78 5.78 0 0 0 5.787 0 6.117 6.117 0 0 0 0 6.16c0 8.027 10.827 13.627 10.827 13.627S21.654 14.19 21.654 6.16A6.117 6.117 0 0 0 15.866 0Z"
+      fill={color}
+    />
+  </Svg>
+);
+const StarSvg = ({color = Colors.typography, size = 11}) => (
+  <Svg width={size} height={size} viewBox="0 0 11 10">
+    <Path
+      d="M8.94 9.446 5.888 7.841 2.833 9.446l.584-3.4L.944 3.636l3.415-.496L5.887 0l1.529 3.141 3.415.496-2.474 2.41.584 3.399Z"
+      fill={color}
+    />
+  </Svg>
+);
+export {
+  OrderSvg,
+  ProfileSvg,
+  GpsSvg,
+  LogoutSvg,
+  DiscoverSvg,
+  CartSvg,
+  HeartSvg,
+  StarSvg,
+};

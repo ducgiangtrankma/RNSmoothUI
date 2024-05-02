@@ -150,30 +150,22 @@ export const ProductDetail = () => {
         showsVerticalScrollIndicator={false}
         ref={scrollRef}
         contentContainerStyle={styles.content}>
-        {/* <Animated.Image
+        <Animated.Image
           source={{
             uri: data?.image ?? '',
           }}
-          style={[styles.header, imageAnimatedStyle, headerStyle]}
+          style={[styles.banner, imageAnimatedStyle, headerStyle]}
           resizeMode={'cover'}
-        /> */}
-        <Animated.View style={[styles.header, headerStyle]}>
-          <Animated.Image
-            source={{
-              uri: data?.image ?? '',
-            }}
-            style={[styles.banner, imageAnimatedStyle]}
-            resizeMode={'cover'}
-          />
-          <View style={styles.headerBar}>
-            <TouchableOpacity onPress={onBackPress} style={styles.btnBack}>
-              <Image
-                style={styles.backIcon}
-                source={require('../assets/images/chevron-left.png')}
-              />
-            </TouchableOpacity>
-          </View>
-        </Animated.View>
+        />
+        <View style={styles.headerBar}>
+          <TouchableOpacity onPress={onBackPress} style={styles.btnBack}>
+            <Image
+              style={styles.backIcon}
+              source={require('../assets/images/chevron-left.png')}
+            />
+          </TouchableOpacity>
+        </View>
+
         <Animated.View
           style={[styles.contentWrapper, informationContainerStyle]}>
           <Text>
@@ -197,24 +189,7 @@ export const ProductDetail = () => {
             1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes
             of Good and Evil) by Cicero, written in 45 BC. This book is a
             treatise on the theory of ethics, very popular during the
-            Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit
-            amet..", comes from a line in section 1.10.32. The standard chunk of
-            Lorem Ipsum used since the 1500s is reproduced below for those
-            interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et
-            Malorum" by Cicero are also reproduced in their exact original form,
-            accompanied by English versions from the 1914 translation by H.
-            Rackham. Where can I get some? There are many variations of passages
-            of Lorem Ipsum available, but the majority have suffered alteration
-            in some form, by injected humour, or randomised words which don't
-            look even slightly believable. If you are going to use a passage of
-            Lorem Ipsum, you need to be sure there isn't anything embarrassing
-            hidden in the middle of text. All the Lorem Ipsum generators on the
-            Internet tend to repeat predefined chunks as necessary, making this
-            the first true generator on the Internet. It uses a dictionary of
-            over 200 Latin words, combined with a handful of model sentence
-            structures, to generate Lorem Ipsum which looks reasonable. The
-            generated Lorem Ipsum is therefore always free from repetition,
-            injected humour, or non-characteristic words etc.
+            Renaissance. The first line of Lorem Ipsum
           </Text>
         </Animated.View>
       </Animated.ScrollView>
@@ -226,8 +201,9 @@ export const ProductDetail = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: Colors.white,
   },
-  content: {paddingBottom: 150},
+  content: {paddingBottom: 150, flex: 1},
   header: {
     height: bannerHeight,
     width: '100%',
@@ -276,6 +252,7 @@ const styles = StyleSheet.create({
     height: 9.5,
   },
   contentWrapper: {
+    flex: 1,
     padding: 20,
     backgroundColor: Colors.white,
   },

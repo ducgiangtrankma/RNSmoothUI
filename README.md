@@ -7,3 +7,8 @@
 <div style="display: flex; flex-direction: 'row';">
 <img src="./src/assets/DynamicButton.gif" width=30%>
 </div>
+
+## 3. Smooth UI
+<div style="display: flex; flex-direction: 'row';">
+<img src="./src/assets/SmoothUI.gif" width=30%>
+</div>
