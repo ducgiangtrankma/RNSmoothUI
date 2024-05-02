@@ -19,6 +19,13 @@ import {Colors} from '../utils/color';
 import {navigate} from '../navigator/NavigationServices';
 import {APP_SCREEN} from '../navigator/ScreenTypes';
 import {HeartSvg, StarSvg} from '../assets';
+import Animated, {
+  interpolate,
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
+} from 'react-native-reanimated';
+import {SortTypes} from '../utils/const';
 
 interface Props {}
 export const Home: FC<Props> = () => {
@@ -95,6 +102,19 @@ export const Home: FC<Props> = () => {
     },
     [onCardPress],
   );
+  //Sort
+  const sortTypeAnim = useSharedValue(0);
+  const toggleShowTypeList = () => {
+    sortTypeAnim.value = withTiming(sortTypeAnim.value === 1 ? 0 : 1);
+  };
+  const sortTypeListStyle = useAnimatedStyle(() => ({
+    height: interpolate(sortTypeAnim.value, [0, 1], [0, SortTypeListHeight]),
+  }));
+  const renderSortTypeItem = (item: any) => (
+    <TouchableOpacity style={[styles.sortTypeItem]}>
+      <Text>{item.name}</Text>
+    </TouchableOpacity>
+  );
   return (
     <Container disableLast>
       <TouchableOpacity
@@ -105,6 +125,21 @@ export const Home: FC<Props> = () => {
           source={require('../assets/images/horizontal-line.png')}
         />
       </TouchableOpacity>
+      <TouchableOpacity onPress={toggleShowTypeList} style={styles.sortByType}>
+        <Text
+          style={{
+            fontSize: 16,
+            fontWeight: '500',
+            marginTop: 16,
+            marginBottom: 8,
+            marginLeft: 16,
+          }}>
+          Sort by: Popular
+        </Text>
+      </TouchableOpacity>
+      <Animated.View style={[styles.sortTypeList, sortTypeListStyle]}>
+        {sortTypes.map(renderSortTypeItem)}
+      </Animated.View>
       <FlatList
         data={FoodData}
         renderItem={renderItem}
@@ -115,8 +150,10 @@ export const Home: FC<Props> = () => {
     </Container>
   );
 };
+const sortTypes = Object.values(SortTypes);
 export const _screen_width = Dimensions.get('window').width;
 const Food_Item_WIDTH = _screen_width / 2 - 32;
+const SortTypeListHeight = 90;
 const styles = StyleSheet.create({
   menuIcon: {
     width: 20,
@@ -243,6 +280,39 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 16,
     paddingTop: 16,
+  },
+  sortBy: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  sortByType: {flexDirection: 'row', alignItems: 'center'},
+  sortByArrow: {
+    width: 6,
+    height: 3,
+  },
+  sortTypeList: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 26,
+    height: SortTypeListHeight,
+    flexWrap: 'wrap',
+    overflow: 'hidden',
+  },
+  sortTypeItem: {
+    paddingHorizontal: 10,
+    paddingVertical: 7,
+    marginRight: 10,
+    marginBottom: 10,
+    borderRadius: 99,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 3.84,
+    elevation: 5,
+    backgroundColor: Colors.white,
   },
 });
 
