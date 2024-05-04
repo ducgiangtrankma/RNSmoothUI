@@ -6,6 +6,7 @@ interface ContainerProp {
   disableFirst?: boolean;
   disableLast?: boolean;
   statusBarProps?: any;
+  statusBarBackground?: string;
 }
 
 const Container = ({
@@ -13,6 +14,7 @@ const Container = ({
   disableFirst,
   disableLast,
   statusBarProps,
+  statusBarBackground,
 }: ContainerProp) => {
   const {bottom, top} = useSafeAreaInsets();
   return (
@@ -20,7 +22,7 @@ const Container = ({
       {!disableFirst && <View style={[styles.bar, {height: top}]} />}
       <StatusBar
         translucent
-        backgroundColor="transparent"
+        backgroundColor={statusBarBackground ?? 'transparent'}
         barStyle="dark-content"
         {...statusBarProps}
       />

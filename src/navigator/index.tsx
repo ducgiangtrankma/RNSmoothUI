@@ -28,6 +28,8 @@ import {ProductDetail} from '../screens/ProductDetail';
 import {Profile} from '../screens/Profile';
 import {navigate, navigationRef} from './NavigationServices';
 import {APP_SCREEN} from './ScreenTypes';
+import {DeliveryAddress} from '../screens/DeliveryAddress';
+import {AddAddress} from '../components/AddAddress';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -44,7 +46,7 @@ export const drawerMenus = [
   },
   {
     name: 'Delivery Address',
-    routeName: 'Home',
+    routeName: APP_SCREEN.DELIVERY_ADDRESS,
     iconComponent: GpsSvg,
   },
   {
@@ -92,6 +94,14 @@ const HomeStack = React.memo(() => (
       options={{
         animation: 'none',
       }}
+    />
+    <Stack.Screen
+      name={APP_SCREEN.DELIVERY_ADDRESS}
+      component={DeliveryAddress}
+    />
+    <Stack.Screen
+      name={APP_SCREEN.ADD_DELIVERY_ADDRESS}
+      component={AddAddress}
     />
   </Stack.Navigator>
 ));
@@ -149,7 +159,7 @@ export const AnimatedAppNavigation = () => {
       _handleToggleDrawerMenu();
       setTimeout(() => {
         navigate(item.routeName);
-      }, 500);
+      }, 100);
     };
     return (
       <TouchableOpacity

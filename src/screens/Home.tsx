@@ -1,7 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {FC, useCallback, useRef} from 'react';
 import {
-  Dimensions,
   FlatList,
   Image,
   Platform,
@@ -16,16 +15,16 @@ import Container from '../components/Container';
 import {toggleDrawerMenu} from '../redux';
 import {Colors} from '../utils/color';
 
-import {navigate} from '../navigator/NavigationServices';
-import {APP_SCREEN} from '../navigator/ScreenTypes';
-import {HeartSvg, StarSvg} from '../assets';
 import Animated, {
   interpolate,
   useAnimatedStyle,
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
-import {SortTypes} from '../utils/const';
+import {HeartSvg, StarSvg} from '../assets';
+import {navigate} from '../navigator/NavigationServices';
+import {APP_SCREEN} from '../navigator/ScreenTypes';
+import {SortTypes, _screen_width} from '../utils/const';
 
 interface Props {}
 export const Home: FC<Props> = () => {
@@ -151,7 +150,6 @@ export const Home: FC<Props> = () => {
   );
 };
 const sortTypes = Object.values(SortTypes);
-export const _screen_width = Dimensions.get('window').width;
 const Food_Item_WIDTH = _screen_width / 2 - 32;
 const SortTypeListHeight = 90;
 const styles = StyleSheet.create({

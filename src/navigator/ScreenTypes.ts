@@ -1,4 +1,4 @@
-import {ProductEntity} from '../screens/Home';
+import {AddressEntity} from '../redux';
 
 export enum APP_SCREEN {
   AUTHENTICATION = 'AUTHENTICATION',
@@ -9,6 +9,8 @@ export enum APP_SCREEN {
   ORDERS = 'ORDERS',
   PROFILE = 'PROFILE',
   PRODUCT_DETAIL = 'PRODUCT_DETAIL',
+  DELIVERY_ADDRESS = 'DELIVERY_ADDRESS',
+  ADD_DELIVERY_ADDRESS = 'ADD_DELIVERY_ADDRESS',
 }
 export type UnAuthenticationPramsList = {
   [APP_SCREEN.LOGIN]: undefined;
@@ -20,7 +22,7 @@ export type AuthenticationPramsList = {
   [APP_SCREEN.ORDERS]: undefined;
   [APP_SCREEN.PROFILE]: undefined;
   [APP_SCREEN.PRODUCT_DETAIL]: {
-    data: ProductEntity;
+    data: any;
     animated?: boolean;
     image: {
       x: number;
@@ -28,6 +30,11 @@ export type AuthenticationPramsList = {
       width: number;
       height: number;
     };
+  };
+  [APP_SCREEN.DELIVERY_ADDRESS]: undefined;
+  [APP_SCREEN.ADD_DELIVERY_ADDRESS]: {
+    currentAddress?: AddressEntity;
+    mode?: 'Edit' | 'Create';
   };
 };
 

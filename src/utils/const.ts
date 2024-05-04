@@ -1,3 +1,7 @@
+import {Dimensions, NativeModules} from 'react-native';
+
+const {StatusBarManager} = NativeModules;
+
 export const SortTypes = {
   Popular: {
     name: 'Popular',
@@ -20,3 +24,5 @@ export const SortTypes = {
     orderType: 'desc',
   },
 };
+export const _screen_statusbar_height = StatusBarManager.HEIGHT;
+export const _screen_width = Dimensions.get('window').width;

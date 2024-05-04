@@ -88,6 +88,49 @@ const StarSvg = ({color = Colors.typography, size = 11}) => (
     />
   </Svg>
 );
+const SearchSvg = ({color = Colors.typography, size = 16}) => (
+  <Svg width={size} height={size} viewBox="0 0 16 16">
+    <Path
+      d="m11.047 11.4 3.453 3.1"
+      stroke={color}
+      strokeWidth={2}
+      strokeLinecap="round"
+    />
+    <Path
+      d="M7 13A6 6 0 1 0 7 1a6 6 0 0 0 0 12Z"
+      stroke={color}
+      strokeWidth={2}
+    />
+  </Svg>
+);
+const ArrowLeftSvg = ({size = 24, color = Colors.typography}) => (
+  <Svg
+    width={size}
+    height={size}
+    xmlns="http://www.w3.org/2000/svg"
+    aria-labelledby="arrowLeftIconTitle"
+    stroke={color}
+    strokeWidth={2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    fill="none"
+    viewBox="0 0 24 24"
+    color={color}>
+    <Path d="m9 6-6 6 6 6M21 12H4M3 12h1" />
+  </Svg>
+);
+const CheckSvg = ({size = 24, color = Colors.typography}) => (
+  <Svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 405.272 405.272">
+    <Path
+      fill={color}
+      d="M393.401 124.425 179.603 338.208c-15.832 15.835-41.514 15.835-57.361 0L11.878 227.836c-15.838-15.835-15.838-41.52 0-57.358 15.841-15.841 41.521-15.841 57.355-.006l81.698 81.699L336.037 67.064c15.841-15.841 41.523-15.829 57.358 0 15.835 15.838 15.835 41.514.006 57.361z"
+    />
+  </Svg>
+);
 export {
   OrderSvg,
   ProfileSvg,
@@ -97,4 +140,7 @@ export {
   CartSvg,
   HeartSvg,
   StarSvg,
+  SearchSvg,
+  ArrowLeftSvg,
+  CheckSvg,
 };

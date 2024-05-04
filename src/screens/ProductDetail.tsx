@@ -8,7 +8,6 @@ import React, {useEffect} from 'react';
 import {
   Dimensions,
   Image,
-  NativeModules,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -27,9 +26,7 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {goBack} from '../navigator/NavigationServices';
 import {APP_SCREEN, RootStackParamList} from '../navigator/ScreenTypes';
 import {Colors} from '../utils/color';
-const {StatusBarManager} = NativeModules;
-
-export const _screen_statusbar_height = StatusBarManager.HEIGHT;
+import {_screen_statusbar_height} from '../utils/const';
 
 const bannerHeight = 296;
 const IMG_HEIGHT = bannerHeight;
