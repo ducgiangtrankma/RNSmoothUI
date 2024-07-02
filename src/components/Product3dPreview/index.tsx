@@ -91,3 +91,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
+/**
+ * Using:
+const componentRef = useRef<Product3dPreviewRef>(null);
+<Product3dPreview ref={componentRef} />
+*/

@@ -19,6 +19,7 @@ import Animated, {
   interpolate,
   useAnimatedStyle,
   useSharedValue,
+  withDelay,
   withTiming,
 } from 'react-native-reanimated';
 import {HeartSvg, StarSvg} from '../assets';
@@ -109,11 +110,7 @@ export const Home: FC<Props> = () => {
   const sortTypeListStyle = useAnimatedStyle(() => ({
     height: interpolate(sortTypeAnim.value, [0, 1], [0, SortTypeListHeight]),
   }));
-  const renderSortTypeItem = (item: any) => (
-    <TouchableOpacity style={[styles.sortTypeItem]}>
-      <Text>{item.name}</Text>
-    </TouchableOpacity>
-  );
+
   return (
     <Container disableLast>
       <TouchableOpacity
@@ -137,7 +134,16 @@ export const Home: FC<Props> = () => {
         </Text>
       </TouchableOpacity>
       <Animated.View style={[styles.sortTypeList, sortTypeListStyle]}>
-        {sortTypes.map(renderSortTypeItem)}
+        {sortTypes.map(item => (
+          <TouchableOpacity
+            key={item.name}
+            style={[styles.sortTypeItem]}
+            onPress={() => {
+              sortTypeAnim.value = withDelay(100, withTiming(0));
+            }}>
+            <Text>{item.name}</Text>
+          </TouchableOpacity>
+        ))}
       </Animated.View>
       <FlatList
         data={FoodData}
