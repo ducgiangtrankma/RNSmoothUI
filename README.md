@@ -20,5 +20,5 @@
 
 ## 5. Scroll Progress
 <div style="display: flex; flex-direction: 'row';">
-<img src="./src/assets/ScrollProgress.gif" width=30%>
+<img src="./src/assets/ScrollProgress.png" width=30%>
 </div>
