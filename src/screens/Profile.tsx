@@ -9,6 +9,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import {DynamicButton, WidgetList} from '../components';
 import Container from '../components/Container';
+import {CardInfo} from '../components/ShowAndHideCardNumber';
 
 interface Props {}
 const SortTypeListHeight = 90;
@@ -39,6 +40,7 @@ export const Profile: FC<Props> = () => {
       <Animated.View style={[styles.sortTypeList, sortTypeListStyle]}>
         {sortTypes.map(renderSortTypeItem)}
       </Animated.View>
+      <CardInfo cardNumber={2223000048400011} />
     </Container>
   );
 };

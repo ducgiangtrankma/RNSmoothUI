@@ -22,3 +22,8 @@
 <div style="display: flex; flex-direction: 'row';">
 <img src="./src/assets/ScrollProgress.png" width=30%>
 </div>
+
+## 6. Hide Password
+<div style="display: flex; flex-direction: 'row';">
+<img src="./src/assets/HidePassword.gif" width=30%>
+</div>
