@@ -26,6 +26,7 @@ import {HeartSvg, StarSvg} from '../assets';
 import {navigate} from '../navigator/NavigationServices';
 import {APP_SCREEN} from '../navigator/ScreenTypes';
 import {SortTypes, _screen_width} from '../utils/const';
+import {SvgIcon} from '../components/SvgIcon';
 
 interface Props {}
 export const Home: FC<Props> = () => {
@@ -132,6 +133,7 @@ export const Home: FC<Props> = () => {
           }}>
           Sort by: Popular
         </Text>
+        <SvgIcon name="arrowup" type="AntDesign" size={24} />
       </TouchableOpacity>
       <Animated.View style={[styles.sortTypeList, sortTypeListStyle]}>
         {sortTypes.map(item => (
