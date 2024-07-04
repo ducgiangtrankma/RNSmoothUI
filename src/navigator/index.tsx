@@ -32,6 +32,8 @@ import {DeliveryAddress} from '../screens/DeliveryAddress';
 import {AddAddress} from '../components/AddAddress';
 import {ScrollProgressSc} from '../screens/ScrollProgress';
 import {GridViewToListViewSc} from '../screens/GridViewToListViewAnimation';
+import {MasonryListSc} from '../components/MasonryList/List';
+import {DetailsMasonListSc} from '../components/MasonryList/DetailMasonList';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -112,6 +114,11 @@ const HomeStack = React.memo(() => (
     <Stack.Screen
       name={APP_SCREEN.GRID_TO_LIST}
       component={GridViewToListViewSc}
+    />
+    <Stack.Screen name={APP_SCREEN.MANSON_LIST} component={MasonryListSc} />
+    <Stack.Screen
+      name={APP_SCREEN.DETAIL_MANSON_LIST}
+      component={DetailsMasonListSc}
     />
   </Stack.Navigator>
 ));

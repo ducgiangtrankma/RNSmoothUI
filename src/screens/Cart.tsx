@@ -24,6 +24,12 @@ export const Cart: FC<Props> = () => {
           <Text style={styles.btnTitle}>Grid to list UI</Text>
           <RightArrowIcon />
         </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigate(APP_SCREEN.MANSON_LIST)}>
+          <Text style={styles.btnTitle}>Mason list UI</Text>
+          <RightArrowIcon />
+        </TouchableOpacity>
       </ScrollView>
     </Container>
   );
