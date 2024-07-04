@@ -12,6 +12,7 @@ export enum APP_SCREEN {
   DELIVERY_ADDRESS = 'DELIVERY_ADDRESS',
   ADD_DELIVERY_ADDRESS = 'ADD_DELIVERY_ADDRESS',
   SCROLL_PROGRESS = 'SCROLL_PROGRESS',
+  GRID_TO_LIST = 'GRID_TO_LIST',
 }
 export type UnAuthenticationPramsList = {
   [APP_SCREEN.LOGIN]: undefined;
@@ -38,6 +39,7 @@ export type AuthenticationPramsList = {
     mode?: 'Edit' | 'Create';
   };
   [APP_SCREEN.SCROLL_PROGRESS]: undefined;
+  [APP_SCREEN.GRID_TO_LIST]: undefined;
 };
 
 export type RootStackParamList = {

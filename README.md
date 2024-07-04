@@ -27,3 +27,8 @@
 <div style="display: flex; flex-direction: 'row';">
 <img src="./src/assets/HidePassword.gif" width=30%>
 </div>
+
+## 6. Grid View to List View
+<div style="display: flex; flex-direction: 'row';">
+<img src="./src/assets/GridToList.gif" width=30%>
+</div>

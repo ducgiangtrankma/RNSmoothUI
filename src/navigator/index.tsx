@@ -31,6 +31,7 @@ import {APP_SCREEN} from './ScreenTypes';
 import {DeliveryAddress} from '../screens/DeliveryAddress';
 import {AddAddress} from '../components/AddAddress';
 import {ScrollProgressSc} from '../screens/ScrollProgress';
+import {GridViewToListViewSc} from '../screens/GridViewToListViewAnimation';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -107,6 +108,10 @@ const HomeStack = React.memo(() => (
     <Stack.Screen
       name={APP_SCREEN.SCROLL_PROGRESS}
       component={ScrollProgressSc}
+    />
+    <Stack.Screen
+      name={APP_SCREEN.GRID_TO_LIST}
+      component={GridViewToListViewSc}
     />
   </Stack.Navigator>
 ));

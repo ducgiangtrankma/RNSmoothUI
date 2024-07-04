@@ -71,10 +71,10 @@ export const CardInfo: React.FC<CardInfoProps> = React.memo(({cardNumber}) => {
       <TouchableOpacity style={styles.button} onPress={onToggle}>
         <SvgIcon
           type="Feather"
-          name={toggled ? 'eye' : 'eye-off'}
+          name={toggled ? 'eye-off' : 'eye'}
           size={24}
           style={{
-            color: toggled ? 'green' : 'gray',
+            color: toggled ? 'gray' : 'green',
           }}
         />
       </TouchableOpacity>

@@ -18,6 +18,12 @@ export const Cart: FC<Props> = () => {
           <Text style={styles.btnTitle}>Reading Progress UI</Text>
           <RightArrowIcon />
         </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigate(APP_SCREEN.GRID_TO_LIST)}>
+          <Text style={styles.btnTitle}>Grid to list UI</Text>
+          <RightArrowIcon />
+        </TouchableOpacity>
       </ScrollView>
     </Container>
   );
@@ -30,6 +36,7 @@ const styles = StyleSheet.create({
   button: {
     width: _screen_width - 64,
     height: 44,
+    marginBottom: 24,
     alignSelf: 'center',
     justifyContent: 'space-between',
     alignItems: 'center',
