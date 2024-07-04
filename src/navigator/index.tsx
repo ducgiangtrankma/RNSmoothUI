@@ -34,6 +34,7 @@ import {ScrollProgressSc} from '../screens/ScrollProgress';
 import {GridViewToListViewSc} from '../screens/GridViewToListViewAnimation';
 import {MasonryListSc} from '../components/MasonryList/List';
 import {DetailsMasonListSc} from '../components/MasonryList/DetailMasonList';
+import {CryptoPinCodeInputSc} from '../components/CryptoPinCodeInput';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -119,6 +120,10 @@ const HomeStack = React.memo(() => (
     <Stack.Screen
       name={APP_SCREEN.DETAIL_MANSON_LIST}
       component={DetailsMasonListSc}
+    />
+    <Stack.Screen
+      name={APP_SCREEN.CRYPTO_PIN_CODE_INPUT}
+      component={CryptoPinCodeInputSc}
     />
   </Stack.Navigator>
 ));

@@ -64,3 +64,4 @@ const styles = StyleSheet.create({
     paddingBottom: 100,
   },
 });
+// "react-native-gesture-handler": "^2.15.0"

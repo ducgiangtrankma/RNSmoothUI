@@ -15,6 +15,7 @@ export enum APP_SCREEN {
   GRID_TO_LIST = 'GRID_TO_LIST',
   MANSON_LIST = 'MANSON_LIST',
   DETAIL_MANSON_LIST = 'DETAIL_MANSON_LIST',
+  CRYPTO_PIN_CODE_INPUT = 'CRYPTO_PIN_CODE_INPUT',
 }
 export type UnAuthenticationPramsList = {
   [APP_SCREEN.LOGIN]: undefined;
@@ -47,6 +48,7 @@ export type AuthenticationPramsList = {
     source: any;
     heroTag: string;
   };
+  [APP_SCREEN.CRYPTO_PIN_CODE_INPUT]: undefined;
 };
 
 export type RootStackParamList = {
