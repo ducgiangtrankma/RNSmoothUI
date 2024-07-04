@@ -7,6 +7,7 @@ interface ContainerProp {
   disableLast?: boolean;
   statusBarProps?: any;
   statusBarBackground?: string;
+  barStyle?: string;
 }
 
 const Container = ({
@@ -15,6 +16,7 @@ const Container = ({
   disableLast,
   statusBarProps,
   statusBarBackground,
+  barStyle,
 }: ContainerProp) => {
   const {bottom, top} = useSafeAreaInsets();
   return (
@@ -23,7 +25,7 @@ const Container = ({
       <StatusBar
         translucent
         backgroundColor={statusBarBackground ?? 'transparent'}
-        barStyle="dark-content"
+        barStyle={barStyle ?? 'dark-content'}
         {...statusBarProps}
       />
       <View style={styles.container}>{children}</View>

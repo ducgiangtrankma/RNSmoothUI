@@ -11,6 +11,7 @@ export enum APP_SCREEN {
   PRODUCT_DETAIL = 'PRODUCT_DETAIL',
   DELIVERY_ADDRESS = 'DELIVERY_ADDRESS',
   ADD_DELIVERY_ADDRESS = 'ADD_DELIVERY_ADDRESS',
+  SCROLL_PROGRESS = 'SCROLL_PROGRESS',
 }
 export type UnAuthenticationPramsList = {
   [APP_SCREEN.LOGIN]: undefined;
@@ -36,6 +37,7 @@ export type AuthenticationPramsList = {
     currentAddress?: AddressEntity;
     mode?: 'Edit' | 'Create';
   };
+  [APP_SCREEN.SCROLL_PROGRESS]: undefined;
 };
 
 export type RootStackParamList = {

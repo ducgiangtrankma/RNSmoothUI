@@ -30,6 +30,7 @@ import {navigate, navigationRef} from './NavigationServices';
 import {APP_SCREEN} from './ScreenTypes';
 import {DeliveryAddress} from '../screens/DeliveryAddress';
 import {AddAddress} from '../components/AddAddress';
+import {ScrollProgressSc} from '../screens/ScrollProgress';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -102,6 +103,10 @@ const HomeStack = React.memo(() => (
     <Stack.Screen
       name={APP_SCREEN.ADD_DELIVERY_ADDRESS}
       component={AddAddress}
+    />
+    <Stack.Screen
+      name={APP_SCREEN.SCROLL_PROGRESS}
+      component={ScrollProgressSc}
     />
   </Stack.Navigator>
 ));

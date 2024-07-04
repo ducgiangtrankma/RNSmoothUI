@@ -131,6 +131,19 @@ const CheckSvg = ({size = 24, color = Colors.typography}) => (
     />
   </Svg>
 );
+const RightArrowIcon = (props: any) => (
+  <Svg
+    width={16}
+    height={17}
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}>
+    <Path
+      d="M5.94 14.097a.495.495 0 0 1-.354-.147.503.503 0 0 1 0-.706l4.347-4.347a.82.82 0 0 0 0-1.16L5.586 3.39a.503.503 0 0 1 0-.706.503.503 0 0 1 .707 0L10.64 7.03c.34.34.533.8.533 1.287 0 .487-.187.947-.533 1.287L6.293 13.95a.524.524 0 0 1-.353.147Z"
+      fill={props.fill ?? '#333'}
+    />
+  </Svg>
+);
 export {
   OrderSvg,
   ProfileSvg,
@@ -143,4 +156,5 @@ export {
   SearchSvg,
   ArrowLeftSvg,
   CheckSvg,
+  RightArrowIcon,
 };
