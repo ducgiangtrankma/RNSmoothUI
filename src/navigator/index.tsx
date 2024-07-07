@@ -35,6 +35,7 @@ import {GridViewToListViewSc} from '../screens/GridViewToListViewAnimation';
 import {MasonryListSc} from '../components/MasonryList/List';
 import {DetailsMasonListSc} from '../components/MasonryList/DetailMasonList';
 import {CryptoPinCodeInputSc} from '../components/CryptoPinCodeInput';
+import {ActiveTabBarContextProvider} from '../components/BottomTabBar/activeTabbarProvider';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -80,15 +81,17 @@ const config = {
 };
 
 const HomeTab = React.memo(() => (
-  <Tab.Navigator
-    // eslint-disable-next-line react/no-unstable-nested-components
-    tabBar={props => <BottomTabBar {...props} />}
-    screenOptions={config}>
-    <Tab.Screen name={APP_SCREEN.HOME} component={Home} />
-    <Tab.Screen name={APP_SCREEN.CART} component={Cart} />
-    <Tab.Screen name={APP_SCREEN.ORDERS} component={Orders} />
-    <Tab.Screen name={APP_SCREEN.PROFILE} component={Profile} />
-  </Tab.Navigator>
+  <ActiveTabBarContextProvider>
+    <Tab.Navigator
+      // eslint-disable-next-line react/no-unstable-nested-components
+      tabBar={props => <BottomTabBar {...props} />}
+      screenOptions={config}>
+      <Tab.Screen name={APP_SCREEN.HOME} component={Home} />
+      <Tab.Screen name={APP_SCREEN.CART} component={Cart} />
+      <Tab.Screen name={APP_SCREEN.ORDERS} component={Orders} />
+      <Tab.Screen name={APP_SCREEN.PROFILE} component={Profile} />
+    </Tab.Navigator>
+  </ActiveTabBarContextProvider>
 ));
 const HomeStack = React.memo(() => (
   <Stack.Navigator screenOptions={config}>

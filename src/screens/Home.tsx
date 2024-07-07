@@ -1,7 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {FC, useCallback, useRef} from 'react';
 import {
-  FlatList,
   Image,
   Platform,
   Pressable,
@@ -17,16 +16,17 @@ import {Colors} from '../utils/color';
 
 import Animated, {
   interpolate,
+  useAnimatedScrollHandler,
   useAnimatedStyle,
   useSharedValue,
   withDelay,
   withTiming,
 } from 'react-native-reanimated';
 import {HeartSvg, StarSvg} from '../assets';
+import {useActiveTabBarContext} from '../components/BottomTabBar/activeTabbarProvider';
 import {navigate} from '../navigator/NavigationServices';
 import {APP_SCREEN} from '../navigator/ScreenTypes';
 import {SortTypes, _screen_width} from '../utils/const';
-import {SvgIcon} from '../components/SvgIcon';
 
 interface Props {}
 export const Home: FC<Props> = () => {
@@ -112,6 +112,27 @@ export const Home: FC<Props> = () => {
     height: interpolate(sortTypeAnim.value, [0, 1], [0, SortTypeListHeight]),
   }));
 
+  //Handle hide bottom tab on scroll
+
+  const {isActive} = useActiveTabBarContext();
+
+  const prevContentOffsetY = useSharedValue(0);
+
+  // Scroll handler to respond to scroll events
+  const scrollHandler = useAnimatedScrollHandler({
+    onScroll: event => {
+      // Calculate positive scroll offsets to prevent negative values
+      const positiveOffsetY = Math.max(event.contentOffset.y, 0);
+      const positivePrevOffsetY = Math.max(prevContentOffsetY.value, 0);
+      // Check the scroll direction (upwards or downwards)
+      const isScrollingUp = positivePrevOffsetY - positiveOffsetY >= 0;
+      // Update the 'isActive' value based on the scroll direction
+      isActive.value = isScrollingUp;
+      // Update the previous scroll offset with the current offset
+      prevContentOffsetY.value = event.contentOffset.y;
+    },
+  });
+
   return (
     <Container disableLast>
       <TouchableOpacity
@@ -133,7 +154,6 @@ export const Home: FC<Props> = () => {
           }}>
           Sort by: Popular
         </Text>
-        <SvgIcon name="arrowup" type="AntDesign" size={24} />
       </TouchableOpacity>
       <Animated.View style={[styles.sortTypeList, sortTypeListStyle]}>
         {sortTypes.map(item => (
@@ -147,7 +167,8 @@ export const Home: FC<Props> = () => {
           </TouchableOpacity>
         ))}
       </Animated.View>
-      <FlatList
+      <Animated.FlatList
+        onScroll={scrollHandler}
         data={FoodData}
         renderItem={renderItem}
         numColumns={2}
@@ -452,6 +473,161 @@ const FoodData = [
   },
   {
     id: 5,
+    name: 'Chicken Tikka',
+    avgRate: 4.5,
+    totalReviews: 25,
+    image: PRODUCT_IMAGE,
+    short_description: 'Fast food',
+    description:
+      'Chicken Tikka Skewers is a fast food restaurant in the heart of the city. It is a place where you can enjoy the best chicken tikka skewers in the city.',
+    price: 10.5,
+    options: [
+      {
+        id: 1,
+        name: 'Pepper Julienned',
+        price: 2.5,
+        image: PRODUCT_IMAGE,
+      },
+      {
+        id: 2,
+        name: 'Baby Spinach',
+        price: 4.5,
+        image: PRODUCT_IMAGE,
+      },
+      {
+        id: 3,
+        name: 'Masroom',
+        price: 4.5,
+        image: PRODUCT_IMAGE,
+      },
+    ],
+  },
+  {
+    id: 6,
+    name: 'Chicken Tikka',
+    avgRate: 4.5,
+    totalReviews: 25,
+    image: PRODUCT_IMAGE,
+    short_description: 'Fast food',
+    description:
+      'Chicken Tikka Skewers is a fast food restaurant in the heart of the city. It is a place where you can enjoy the best chicken tikka skewers in the city.',
+    price: 10.5,
+    options: [
+      {
+        id: 1,
+        name: 'Pepper Julienned',
+        price: 2.5,
+        image: PRODUCT_IMAGE,
+      },
+      {
+        id: 2,
+        name: 'Baby Spinach',
+        price: 4.5,
+        image: PRODUCT_IMAGE,
+      },
+      {
+        id: 3,
+        name: 'Masroom',
+        price: 4.5,
+        image: PRODUCT_IMAGE,
+      },
+    ],
+  },
+  {
+    id: 7,
+    name: 'Chicken Tikka',
+    avgRate: 4.5,
+    totalReviews: 25,
+    image: PRODUCT_IMAGE,
+    short_description: 'Fast food',
+    description:
+      'Chicken Tikka Skewers is a fast food restaurant in the heart of the city. It is a place where you can enjoy the best chicken tikka skewers in the city.',
+    price: 10.5,
+    options: [
+      {
+        id: 1,
+        name: 'Pepper Julienned',
+        price: 2.5,
+        image: PRODUCT_IMAGE,
+      },
+      {
+        id: 2,
+        name: 'Baby Spinach',
+        price: 4.5,
+        image: PRODUCT_IMAGE,
+      },
+      {
+        id: 3,
+        name: 'Masroom',
+        price: 4.5,
+        image: PRODUCT_IMAGE,
+      },
+    ],
+  },
+  {
+    id: 8,
+    name: 'Chicken Tikka',
+    avgRate: 4.5,
+    totalReviews: 25,
+    image: PRODUCT_IMAGE,
+    short_description: 'Fast food',
+    description:
+      'Chicken Tikka Skewers is a fast food restaurant in the heart of the city. It is a place where you can enjoy the best chicken tikka skewers in the city.',
+    price: 10.5,
+    options: [
+      {
+        id: 1,
+        name: 'Pepper Julienned',
+        price: 2.5,
+        image: PRODUCT_IMAGE,
+      },
+      {
+        id: 2,
+        name: 'Baby Spinach',
+        price: 4.5,
+        image: PRODUCT_IMAGE,
+      },
+      {
+        id: 3,
+        name: 'Masroom',
+        price: 4.5,
+        image: PRODUCT_IMAGE,
+      },
+    ],
+  },
+  {
+    id: 9,
+    name: 'Chicken Tikka',
+    avgRate: 4.5,
+    totalReviews: 25,
+    image: PRODUCT_IMAGE,
+    short_description: 'Fast food',
+    description:
+      'Chicken Tikka Skewers is a fast food restaurant in the heart of the city. It is a place where you can enjoy the best chicken tikka skewers in the city.',
+    price: 10.5,
+    options: [
+      {
+        id: 1,
+        name: 'Pepper Julienned',
+        price: 2.5,
+        image: PRODUCT_IMAGE,
+      },
+      {
+        id: 2,
+        name: 'Baby Spinach',
+        price: 4.5,
+        image: PRODUCT_IMAGE,
+      },
+      {
+        id: 3,
+        name: 'Masroom',
+        price: 4.5,
+        image: PRODUCT_IMAGE,
+      },
+    ],
+  },
+  {
+    id: 10,
     name: 'Chicken Tikka',
     avgRate: 4.5,
     totalReviews: 25,

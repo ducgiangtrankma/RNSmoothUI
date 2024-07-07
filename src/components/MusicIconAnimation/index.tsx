@@ -1,5 +1,6 @@
 import React, {FC, useCallback, useEffect, useRef} from 'react';
 import {Animated, Easing, StyleSheet, View} from 'react-native';
+import {_screen_statusbar_height} from '../../utils/const';
 
 interface Props {}
 export const getMusicNoteAnim = (
@@ -144,7 +145,7 @@ const styles = StyleSheet.create({
   },
   bottomSection: {
     position: 'absolute',
-    bottom: 0,
+    bottom: _screen_statusbar_height,
     flexDirection: 'row',
     width: '100%',
     paddingHorizontal: 8,

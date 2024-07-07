@@ -26,3 +26,4 @@ export const SortTypes = {
 };
 export const _screen_statusbar_height = StatusBarManager.HEIGHT;
 export const _screen_width = Dimensions.get('window').width;
+export const _screen_height = Dimensions.get('window').height;
