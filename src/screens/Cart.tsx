@@ -36,6 +36,12 @@ export const Cart: FC<Props> = () => {
           <Text style={styles.btnTitle}>Crypto Pin Code Input UI</Text>
           <RightArrowIcon />
         </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigate(APP_SCREEN.NUMBER_INPUT)}>
+          <Text style={styles.btnTitle}>Number Input UI</Text>
+          <RightArrowIcon />
+        </TouchableOpacity>
       </ScrollView>
     </Container>
   );

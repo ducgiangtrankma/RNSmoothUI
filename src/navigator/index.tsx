@@ -36,6 +36,7 @@ import {MasonryListSc} from '../components/MasonryList/List';
 import {DetailsMasonListSc} from '../components/MasonryList/DetailMasonList';
 import {CryptoPinCodeInputSc} from '../components/CryptoPinCodeInput';
 import {ActiveTabBarContextProvider} from '../components/BottomTabBar/activeTabbarProvider';
+import {NumberInputSc} from '../screens/NumberInput';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -128,6 +129,7 @@ const HomeStack = React.memo(() => (
       name={APP_SCREEN.CRYPTO_PIN_CODE_INPUT}
       component={CryptoPinCodeInputSc}
     />
+    <Stack.Screen name={APP_SCREEN.NUMBER_INPUT} component={NumberInputSc} />
   </Stack.Navigator>
 ));
 const AppNavigation = React.memo(() => {
